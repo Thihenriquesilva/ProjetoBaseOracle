@@ -1,0 +1,5 @@
+<label for="input-city">Cidade</label>
+<input type="text" placeholder="Ex: São Paulo" id="input-city" name="inp-city" [(ngModel)]="cidade">
+<button type="button" (click)="pesquisar()">Pesquisar</button>
+<p>{{this.prev | json}}</p>
+
