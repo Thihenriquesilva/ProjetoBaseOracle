@@ -8,8 +8,4 @@ export class Previsao{
    data_previsao: string;
 }
 
-export class PrevisaoBanco{
-    cidade: string;
-    data_previsao: string;
-    link_previsao:string
-}
+
