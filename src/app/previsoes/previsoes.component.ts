@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { PrevisoesService } from '../previsoes.service';
 import { Previsao } from '../previsao';
 
@@ -15,7 +15,9 @@ export class PrevisoesComponent implements OnInit {
   cidade:string;
   data_previsao:string
   link_previsao:string
-  constructor(private previsoesService:PrevisoesService) { }
+
+  constructor(private previsoesService:PrevisoesService) {
+   }
 
   ngOnInit(): void {
     this.previsoesService
@@ -26,17 +28,23 @@ export class PrevisoesComponent implements OnInit {
     this.atualizar()
   }
 
+
   pesquisar():void{
+
     if(this.cidade){
       this.previsoesService.obterPrevisoes(this.cidade);
-      this.previsoesService.registrarComp().subscribe((previsoes:any) =>{
+
+      this.previsoesService.registrarComp()
+        .subscribe((previsoes:any) =>{
+          console.log("Minha função",previsoes)
+
       this.minha_previsao = new Previsao()  
       
       this.minha_previsao.name_city = previsoes.city.name;
       this.minha_previsao.temp = previsoes.list[0].main.temp
       this.minha_previsao.minTemp =previsoes.list[0].main.temp_min;
       this.minha_previsao.maxTemp = previsoes.list[0].main.temp_max;
-      this.minha_previsao.icon = `http://openweathermap.org/img/wn/${previsoes['list'][0]['weather'][0]['icon']}@2x.png` ;
+      this.minha_previsao.icon = `http://openweathermap.org/img/wn/${previsoes['list'][0]['weather'][0]['icon']}@2x.png`;
       this.minha_previsao.data_previsao = new Date(Date.now()).toISOString();
     
       })
@@ -55,10 +63,9 @@ export class PrevisoesComponent implements OnInit {
     this.previsoesService.enviarPrevisao(this.cidade, this.data_previsao, this.link_previsao)
     }
 
-    atualizar(){
-      this.previsoesService.historicoPrevisoes()
+  atualizar(){ 
+    this.previsoesService.historicoPrevisoes()
         .subscribe((resp:any)=> {
-          console.log(resp)
           this.historico_previsoes = resp.items
         })
     }

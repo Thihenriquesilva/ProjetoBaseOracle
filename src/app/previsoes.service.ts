@@ -17,9 +17,9 @@ export class PrevisoesService {
   constructor(private httpClient: HttpClient) { }
 
   obterPrevisoes(cidade: string): void {
-    this.httpClient.get(`https://api.openweathermap.org/data/2.5/forecast?q=${cidade},br&appid=${this.appid}&units=metric`).subscribe(response => {
-      
-    this.previsoesSubject.next(response);
+    this.httpClient.get(`https://api.openweathermap.org/data/2.5/forecast?q=${cidade},br&appid=${this.appid}&units=metric`)
+      .subscribe(response => {
+          this.previsoesSubject.next(response);
     });
   };
 

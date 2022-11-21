@@ -1,102 +1,3 @@
-<!-- <div class="grid justify-content-center mt-5 mx-5">
-
-    <h1>Previsão do Tempo</h1>
-
-</div>
-
-<div id="abas" class="card">
-    <p-tabView>
-        <p-tabPanel header="Pesquisar">
-            <form #meuForm="ngForm">
-                <div class="p-inputgroup">
-                    <span class="p-inputgroup-addon">
-                        <i class="pi pi-sun"></i>
-                    </span>
-                    <input ngModel type="text" pInputText placeholder="Digite a cidade" class="w-full block text-center"
-                        name="nome" [(ngModel)]="cidade">
-                    <button class="p-button-secondary" pButton label="OK" (click)="pesquisar()"></button>
-                </div>
-            </form>
-        </p-tabPanel>
-        <p-tabPanel header="Histórico">
-            <div *ngIf="historico_previsoes">
-                <div *ngFor="let previsao of historico_previsoes">
-                    <p><span>{{previsao.cidade}}</span> <span>{{previsao.data_previsao | date:'dd/MM/yyyy'}}</span><a href="{{previsao.link_previsao}}">Link</a></p>
-                </div>
-            </div>
-        </p-tabPanel>
-    </p-tabView>
-</div> <br><br>
-
-<div *ngIf="minha_previsao">
-    <h1>{{minha_previsao.name_city}}</h1>
-    <hr>
-    <img src="{{minha_previsao.icon}}" alt="hoje">
-    <p>Data :<span>{{minha_previsao.data_previsao | date:'dd/MM/yyyy'}}</span><br></p>
-    <p>
-        <strong>Temperatura</strong>:{{minha_previsao.temp}}ºC | <strong>Min:</strong>{{minha_previsao.minTemp}}ºC -
-        <strong>Max:</strong>{{minha_previsao.maxTemp}}ºC
-    </p>
-    <button type="button" class="p-button-secondary" pButton (click)="adicionar()">+</button>
-</div> -->
-
-<!-- <div 
-  class="grid justify-content-center mt-5 mx-5">
-  <h2>Previsão do Tempo</h2>
-</div>
-<div  class="card">
-  <p-tabView>
-    <p-tabPanel header="Pesquisar">
-    Pesquisando
-      <form #meuForm="ngForm"(submit)="pesquisar()">
-        <div class="p-inputgroup">
-          <span class="p-inputgroup-addon">
-            <i class="pi pi-search"></i>
-          </span>
-          <input [(ngModel)]="cidade" type="text" pInputText placeholder="Digite a cidade" class="w-full block text-center" name="nome">
-          <button class="p-button-primary" pButton label="OK" (click)="pesquisar()" ></button><br>
-        </div>
-      </form>
-      <p-table *ngIf="minha_previsao">
-        <ng-template pTemplate="header">
-          <tr>
-            <th><h2>{{minha_previsao.name_city}}</h2></th>
-            <th><img src="{{minha_previsao.icon}}" alt="hoje"></th>   
-          </tr>
-          <tr>
-            <th>Data:{{minha_previsao.data_previsao | date}}</th>
-          </tr>
-          <tr>
-            <th>
-              Temp. {{minha_previsao.temp}}ºC
-            </th>
-          </tr>
-          <tr>
-            <th>Temp. min: {{minha_previsao.minTemp}}ºC Temp. max: {{minha_previsao.maxTemp}}ºC</th>     
-          </tr>
-          <button type="button" class="p-button-secondary" pButton (click)="adicionar()">+</button>
-        </ng-template>
-       
-      </p-table>
-      
-    </p-tabPanel>
-    <p-tabPanel header="Histórico">
-    Puxando histórico
-      <p-table *ngIf="historico_previsoes">
-        <ng-template pTemplate="header" let-cidade>
-            <tr *ngFor="let prev of historico_previsoes">     
-                <th>{{prev.cidade}}</th>     
-                <th>{{prev.data_previsao | date}}</th>     
-                <th><a href="{{prev.data_previsao}}" target="_blank">previsão</a></th>     
-            </tr>
-            
-        </ng-template>
-      </p-table>
-      <button class="p-button-primary" pButton label="Atualizar" (click)="atualizar()"></button>
-    </p-tabPanel>
-  </p-tabView>
-</div> <br><br> -->
-
 <div class="grid justify-content-center mt-5 mx-5">
   <h2>Previsão do Tempo</h2>
 </div>
@@ -116,7 +17,7 @@
                   <button class="p-button-sprimary" pButton label="OK" (click)="pesquisar()"></button>
               </div>
           </form>
-          <p-table id="abas"*ngIf="minha_previsao">
+          <p-table id="abas" *ngIf="minha_previsao">
             <ng-template pTemplate="header">
             <tr>
                 <th>
