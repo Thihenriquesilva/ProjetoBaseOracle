@@ -7,8 +7,6 @@ import { catchError, Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class PrevisoesService {
-  //Observable do tipo push
-  //
   private previsoesSubject = new Subject();
 
   private appid: string = '39f24e48312f0c4e95891ff792b29c36';
@@ -28,10 +26,9 @@ export class PrevisoesService {
   }
 
   enviarPrevisao(cidade:string, data:string, link:string){ 
-    this.httpClient.post(this.urlBd, {cidade:cidade, data_previsao:data, link_previsao:link})
+    return this.httpClient.post(this.urlBd, {cidade:cidade, data_previsao:data, link_previsao:link})
     .subscribe(resp =>{
       console.log("Enviado")
-      console.log(resp)
     } )
   }
 
