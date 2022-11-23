@@ -29,6 +29,7 @@ export class PrevisoesService {
     return this.httpClient.post(this.urlBd, {cidade:cidade, data_previsao:data, link_previsao:link})
     .subscribe(resp =>{
       console.log("Enviado")
+      console.log(resp)
     } )
   }
 

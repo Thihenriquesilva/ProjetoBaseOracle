@@ -20,7 +20,10 @@ export class PrevisoesComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    this.previsoesService
+    .registrarComp().subscribe(previsoes => {
+      console.log('estamos no componente', previsoes)
+    })
     this.atualizar()
   }
 
@@ -38,6 +41,7 @@ export class PrevisoesComponent implements OnInit {
         this.minha_previsao.maxTemp = previsoes.list[0].main.temp_max;
         this.minha_previsao.icon = `http://openweathermap.org/img/wn/${previsoes['list'][0]['weather'][0]['icon']}@2x.png`;
         this.minha_previsao.data_previsao = new Date(previsoes.list[0].dt_txt).toISOString();
+        // this.minha_previsao.data_previsao = new Date(Date.now()).toISOString();
       })
     }
     else{
